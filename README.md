@@ -1,26 +1,24 @@
-# update
+# Update
 
-TODO: Write a description here
+One stop resource for updating packages installed on your system.
 
 ## Installation
 
-
-TODO: Write installation instructions here
-
+Clean install instructions not yet available - check back again soon!
 
 ## Usage
 
+Running the `update` binary will check your system for the package managers installed, and run those package managers update and/or upgrade commands.
 
-
-TODO: Write usage instructions here
-
-## Development
-
-TODO: Write development instructions here
+### Supported Package Managers
+- [Atom Package Managers](https://atom.io/)
+- [Homebrew](http://brew.sh/)
+- [Node Package Managers](https://www.npmjs.com/)
+- [RubyGems](https://rubygems.org/)
 
 ## Contributing
 
-1. Fork it ( https://github.com/[your-github-name]/update/fork )
+1. Fork it ( https://github.com/keplersj/update/fork )
 2. Create your feature branch (git checkout -b my-new-feature)
 3. Commit your changes (git commit -am 'Add some feature')
 4. Push to the branch (git push origin my-new-feature)
@@ -28,4 +26,4 @@ TODO: Write development instructions here
 
 ## Contributors
 
-- [[your-github-name]](https://github.com/[your-github-name]) Kepler Sticka-Jones - creator, maintainer
+- [@keplersj](https://github.com/keplersj) Kepler Sticka-Jones - creator, maintainer
