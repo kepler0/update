@@ -1,14 +1,12 @@
 require "./util"
 
-module Update
-  module Provider
-    include Utilities
-    extend self
+module Update::Provider
+  include Utilities
+  extend self
 
-    def installed?
-    end
+  def installed?
+  end
 
-    def update
-    end
+  def update
   end
 end

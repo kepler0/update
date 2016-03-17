@@ -2,10 +2,10 @@ require "./update/providers/*"
 
 module Update
   PROVIDERS = [
-    Update::Homebrew,
-    Update::APM,
-    Update::NPM,
-    Update::Gems
+    Update::Providers::Homebrew,
+    Update::Providers::APM,
+    Update::Providers::NPM,
+    Update::Providers::Gems
   ]
 end
 
