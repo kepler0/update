@@ -10,6 +10,6 @@ module Update::Providers::APM
 
   def update
     banner "Updating Atom Package Manager Packages"
-    run "apm update"
+    run "apm update --confirm false"
   end
 end
