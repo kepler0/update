@@ -9,7 +9,10 @@ From source:
 make
 make install
 ```
-
+Using [Homebrew](https://brew.sh):
+```bash
+brew install keplersj/tap/update
+```
 
 ## Usage
 
