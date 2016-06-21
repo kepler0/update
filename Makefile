@@ -4,13 +4,17 @@ SOURCES=src/update.cr
 EXECUTABLE=update
 INSTALL_DIR=/usr/local/bin
 
-all: $(EXECUTABLE)
+all: spec compile
 
-$(EXECUTABLE):
+spec:
+	$(CRYSTAL) spec
+
+build: compile
+compile:
 	$(CRYSTAL) compile $(CRYSTAL_FLAGS) $(SOURCES) -o $(EXECUTABLE)
 
 install:
-	mv $(EXECUTABLE) $(INSTALL_DIR)
+	cp $(EXECUTABLE) $(INSTALL_DIR)
 
 clean:
 	rm $(EXECUTABLE)
