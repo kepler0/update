@@ -4,7 +4,12 @@ One stop resource for updating packages installed on your system.
 
 ## Installation
 
-Clean install instructions not yet available - check back again soon!
+From source:
+```bash
+make
+make install
+```
+
 
 ## Usage
 
@@ -15,6 +20,8 @@ Running the `update` binary will check your system for the package managers inst
 - [Homebrew](http://brew.sh/)
 - [Node Package Managers](https://www.npmjs.com/)
 - [RubyGems](https://rubygems.org/)
+- Mac OS X Update
+- App Store
 
 ## Contributing
 
