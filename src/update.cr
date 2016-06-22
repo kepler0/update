@@ -6,7 +6,8 @@ module Update
     Update::Providers::APM,
     Update::Providers::NPM,
     Update::Providers::Gems,
-    Update::Providers::AppStore
+    Update::Providers::AppStore,
+    Update::Providers::Composer
   }
 end
 
