@@ -1,12 +1,20 @@
 require "./util"
 
-module Update::Provider
-  include Utilities
-  extend self
+module Update
+  PROVIDERS = [] of Provider
 
-  def installed?
-  end
+  module Provider
+    include Utilities
+    extend self
 
-  def update
+    macro extended
+      PROVIDERS << {{@type}}
+    end
+
+    def installed?
+    end
+
+    def update
+    end
   end
 end
