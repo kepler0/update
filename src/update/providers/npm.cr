@@ -4,12 +4,10 @@ module Update::Providers::NPM
   extend Provider
   extend self
 
-  def installed?
-    test "npm -v"
-  end
+  EXECUTABLE = "npm"
+  STUFF = "Node Packages"
 
   def update
-    banner "Updating Node Package Manager Packages"
-    run "npm update -g"
+    run_update "update -g"
   end
 end

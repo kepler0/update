@@ -4,12 +4,10 @@ module Update::Providers::AppStore
   extend Provider
   extend self
 
-  def installed?
-    test "softwareupdate -h"
-  end
+  EXECUTABLE = "softwareupdate"
+  STUFF = "OS X and App Store installed apps"
 
   def update
-    banner "Updating OS X and App Store installed apps"
-    run "sudo softwareupdate -v --install --all"
+    run_update "-v --install --all", sudo: true
   end
 end

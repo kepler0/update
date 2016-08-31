@@ -4,12 +4,10 @@ module Update::Providers::APM
   extend Provider
   extend self
 
-  def installed?
-    test "apm"
-  end
+  EXECUTABLE = "apm"
+  STUFF = "Atom Packages"
 
   def update
-    banner "Updating Atom Package Manager Packages"
-    run "apm update --confirm false"
+    run_update "update --confirm false"
   end
 end

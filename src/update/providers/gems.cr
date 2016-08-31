@@ -4,12 +4,10 @@ module Update::Providers::Gems
   extend Provider
   extend self
 
-  def installed?
-    test "gem -v"
-  end
+  EXECUTABLE = "gem"
+  STUFF = "Ruby Gems"
 
   def update
-    banner "Updating Ruby Gems"
-    run "gem update"
+    run_update "update"
   end
 end

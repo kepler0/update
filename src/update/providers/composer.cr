@@ -4,12 +4,10 @@ module Update::Providers::Composer
   extend Provider
   extend self
 
-  def installed?
-    test "composer -v"
-  end
+  EXECUTABLE = "composer"
+  STUFF = "Composer Packages"
 
   def update
-    banner "Updating Composer Packages"
-    run "composer global update"
+    run_update "global update"
   end
 end
