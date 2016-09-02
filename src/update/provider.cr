@@ -1,38 +1,29 @@
 require "./utils"
+require "yaml"
 
 module Update
-  PROVIDERS = [] of Provider
-
-  module Provider
+  class Provider
     include Utilities
-    extend self
 
-    macro extended
-      PROVIDERS << {{@type}}
-
-      def executable
-        {{@type}}::EXECUTABLE
-      end
-
-      def stuff
-        {{@type}}::STUFF
-      end
-    end
-
-    def executable
-    end
+    YAML.mapping(
+      stuff: String,
+      executable: String,
+      command: { type: String, nilable: true },
+      commands: { type: Array(String), nilable: true },
+      sudo: { type: Bool, default: false }
+    )
 
     def installed?
       test "type #{executable}"
     end
 
     def update
+      banner "Updating #{stuff}"
+      run (commands || { command }).map { |com| build_command com }.join(" && ")
     end
 
-    private def run_update(*commands, sudo = false)
-      banner "Updating #{stuff}"
-      commands = commands.map { |com| "#{executable} #{com}" }.join(" && ")
-      run "#{"sudo" if sudo} #{commands}"
+    private def build_command(com)
+      "#{"sudo" if sudo} #{executable} #{com}".strip
     end
   end
 end
