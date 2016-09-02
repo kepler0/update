@@ -1,0 +1,27 @@
+---
+- stuff: Atom Packages
+  executable: apm
+  command: update --confirm false
+
+- stuff: OS X and App Store installed apps
+  executable: softwareupdate
+  command: -v --install --all
+  sudo: true
+
+- stuff: Composer Packages
+  executable: composer
+  command: global update
+
+- stuff: Ruby Gems
+  executable: gem
+  command: update
+
+- stuff: Homebrew and Homebrew Packages
+  executable: brew
+  commands:
+    - update
+    - upgrade
+
+- stuff: Node Packages
+  executable: npm
+  command: update -g
