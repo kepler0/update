@@ -1,4 +1,4 @@
-require "./util"
+require "./utils"
 
 module Update
   PROVIDERS = [] of Provider
