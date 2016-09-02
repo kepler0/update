@@ -12,15 +12,20 @@ module Update::Utilities
     Process.run(command, args, shell: true, input: false, output: true, error: true)
   end
 
-  private def print_bold(text)
-    puts text.colorize(:light_magenta).mode(:bold)
+  private def print_stylized(*strings)
+    strings.each do |string|
+      puts string.to_s.colorize(:light_magenta).mode(:bold)
+    end
   end
 
   private def banner(text)
-    print_bold ""
-    print_bold("=" * text.size)
-    print_bold text
-    print_bold("=" * text.size)
-    print_bold ""
+    line = "=" * (text.size + 2)
+    print_stylized(
+      nil,
+      line,
+      " #{text} ",
+      line,
+      nil
+    )
   end
 end
