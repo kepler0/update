@@ -1,6 +1,6 @@
 require "./update/provider"
 
-yaml = File.read File.join(__DIR__, "providers.yml")
+yaml = {{ `cat #{__DIR__}/providers.yml`.stringify }}
 
 providers = Array(Update::Provider).from_yaml yaml
 
