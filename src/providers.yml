@@ -25,3 +25,13 @@
 - stuff: Node Packages
   executable: npm
   command: update -g
+
+- stuff: Arch Linux Packages
+  executable: pacman
+  command: -Syu
+  sudo: true
+
+- equal: pacman
+  stuff: Arch Linux and AUR Packages
+  executable: pacaur
+  sudo: false
