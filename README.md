@@ -18,6 +18,17 @@ brew install keplersj/tap/update
 
 Running the `update` binary will check your system for the package managers installed, and run those package managers update and/or upgrade commands.
 
+## Configuration
+
+Create configuration file in `$HOME` directory:
+```bash
+touch $HOME/.update.yml
+```
+
+Insert into this file your providers, or reassign existed.
+
+[`YAML.mapping`](./src/update/provider.cr#L8) as documentation and [`providers.yaml`](./src/providers.yml) as example.
+
 ### Supported Package Managers
 - [Atom Package Managers](https://atom.io/)
 - [Homebrew](http://brew.sh/)

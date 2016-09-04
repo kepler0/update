@@ -6,18 +6,33 @@ module Update
     include Utilities
 
     YAML.mapping(
-      stuff: String,
+      stuff: { type: String, nilable: true },
+      enabled: { type: Bool, default: true },
+      equal: { type: String, nilable: true },
       executable: String,
       command: { type: String, nilable: true },
       commands: { type: Array(String), nilable: true },
-      sudo: { type: Bool, default: false }
+      sudo: { type: Bool, nilable: true }
     )
 
-    def installed?
+    def ==(other : self)
+      executable == other.executable ||
+        executable == other.equal ||
+        equal == other.executable
+    end
+
+    def merge!(other)
+      {% for field in %i(stuff enabled executable command commands sudo) %}
+        self.{{field.id}} = other.{{field.id}} unless other.{{field.id}}.nil?
+      {% end %}
+    end
+
+    private def installed?
       test "type #{executable}"
     end
 
     def update
+      return false unless enabled && installed?
       banner "Updating #{stuff}"
       run (commands || { command }).map { |com| build_command com }.join(" && ")
     end
