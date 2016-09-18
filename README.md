@@ -36,6 +36,7 @@ Insert into this file your providers, or reassign existed.
 - [RubyGems](https://rubygems.org/)
 - Mac OS X Update
 - App Store
+- Arch Linux (with AUR by `pacaur`)
 
 ## Contributing
 
