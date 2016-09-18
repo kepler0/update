@@ -13,4 +13,12 @@ user_providers.each do |user_provider|
   provider.merge! user_provider
 end
 
+providers.select! &.updatable?
+
+providers.reject! do |equal_provider|
+  orig_provider = providers.find &.replaceable?(equal_provider)
+  next false unless orig_provider
+  orig_provider.merge! equal_provider
+end
+
 providers.each &.update

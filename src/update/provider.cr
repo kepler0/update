@@ -16,23 +16,29 @@ module Update
     )
 
     def ==(other : self)
-      executable == other.executable ||
-        executable == other.equal ||
-        equal == other.executable
+      executable == other.executable
     end
 
-    def merge!(other)
+    def merge!(other : self)
       {% for field in %i(stuff enabled executable command commands sudo) %}
         self.{{field.id}} = other.{{field.id}} unless other.{{field.id}}.nil?
       {% end %}
+    end
+
+    def replaceable?(other : self)
+      executable == other.equal
     end
 
     private def installed?
       test "type #{executable}"
     end
 
+    def updatable?
+      enabled && installed?
+    end
+
     def update
-      return false unless enabled && installed?
+      return false unless updatable?
       banner "Updating #{stuff}"
       run (commands || { command }).map { |com| build_command com }.join(" && ")
     end
