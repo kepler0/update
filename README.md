@@ -29,14 +29,15 @@ Insert into this file your providers, or reassign existed.
 
 [`YAML.mapping`](./src/update/provider.cr#L8) as documentation and [`providers.yaml`](./src/providers.yml) as example.
 
-### Supported Package Managers
-- [Atom Package Managers](https://atom.io/)
-- [Homebrew](http://brew.sh/)
-- [Node Package Managers](https://www.npmjs.com/)
-- [RubyGems](https://rubygems.org/)
-- Mac OS X Update
+### Included in Default Configuration
 - App Store
 - Arch Linux (with AUR by `pacaur`)
+- [Atom Package Managers](https://atom.io/)
+- Composer
+- [Homebrew](http://brew.sh/)
+- Mac OS X Update
+- [Node Package Managers](https://www.npmjs.com/)
+- [RubyGems](https://rubygems.org/)
 
 ## Contributing
 
