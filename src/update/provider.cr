@@ -23,6 +23,7 @@ module Update
       {% for field in %i(stuff enabled executable command commands sudo) %}
         self.{{field.id}} = other.{{field.id}} unless other.{{field.id}}.nil?
       {% end %}
+      self
     end
 
     def replaceable?(other : self)
