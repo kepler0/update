@@ -50,3 +50,4 @@ Insert into this file your providers, or reassign existed.
 ## Contributors
 
 - [@keplersj](https://github.com/keplersj) Kepler Sticka-Jones - creator, maintainer
+- [@AlexWayfer](https://github.com/AlexWayfer) Alexander Popov - contributor
