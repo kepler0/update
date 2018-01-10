@@ -4,12 +4,12 @@ module Update::Utilities
   extend self
 
   private def test(command, args = nil)
-    status = Process.run(command, args, shell: true, input: false, output: false, error: false)
+    status = Process.run(command, args, shell: true, input: Process::Redirect::Pipe, output: Process::Redirect::Pipe, error: Process::Redirect::Pipe)
     status.success?
   end
 
   private def run(command, args = nil)
-    Process.run(command, args, shell: true, input: false, output: true, error: true)
+    Process.run(command, args, shell: true, input: Process::Redirect::Pipe, output: Process::Redirect::Inherit, error: Process::Redirect::Inherit)
   end
 
   private def print_stylized(*strings)
